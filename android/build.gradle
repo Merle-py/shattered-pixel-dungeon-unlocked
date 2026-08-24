@@ -43,7 +43,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
             dependencies {
-                releaseImplementation project(':services:updates:githubUpdates')
+                // The fork must not offer official Shattered APK updates over the mod.
+                releaseImplementation project(':services:updates:debugUpdates')
                 releaseImplementation project(':services:news:shatteredNews')
             }
         }
