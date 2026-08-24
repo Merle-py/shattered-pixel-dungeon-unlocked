@@ -52,11 +52,14 @@ public class DeviceCompat {
 	}
 	
 	public static boolean isDebug(){
-		return Game.version.contains("INDEV");
+		// Unlocked fork: Shattered already uses this flag to expose progression-gated
+		// menu content (heroes, challenges, custom seeds, dailies and hero info).
+		// Keeping the gate here avoids forging or pre-awarding any badges.
+		return true;
 	}
 	
 	public static void log( String tag, String message ){
-		Gdx.app.log( tag, message );
+		Gdx.app.log(tag, message);
 	}
 
 	//some devices (macOS mainly) report virtual pixels to Shattered, but sometimes we want real pixel precision
@@ -64,7 +67,7 @@ public class DeviceCompat {
 	public static float getRealPixelScaleX(){
 		return (Gdx.graphics.getBackBufferWidth() / (float)Game.width );
 	}
-
+	
 	//...and in the Y dimension
 	public static float getRealPixelScaleY(){
 		return (Gdx.graphics.getBackBufferHeight() / (float)Game.height );
